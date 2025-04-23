@@ -1,6 +1,6 @@
-streamlit==1.17.0  # or your installed version
-tensorflow==2.19.0
-matplotlib==3.10.0
-seaborn==0.11.2  # or your installed version
-pillow==9.1.1  # or your installed version
-scikit-learn==1.0.2  # or your installed version
+streamlit  
+tensorflow
+matplotlib
+seaborn  
+pillow  
+scikit-learn  
