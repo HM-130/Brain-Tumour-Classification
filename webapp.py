@@ -56,13 +56,7 @@ def predict_class(model, img):
     predicted_label = class_names[predicted_class] 
     st.success(f"Predicted Class: {predicted_label}")
     probs = prediction[0] #get probabilities of each class
-    st.info(f"Confidence: {100 * np.max(probs):.2f}%")
-    fig, ax = plt.subplots()
-    ax.bar(class_names, probs)
-    ax.set_ylabel("Probability")
-    ax.set_xlabel("Classes")
-    ax.set_title("Class Prediction Probabilities")
-    st.pyplot(fig)
+    return probs
 
 
 def preprocess_image(uploaded_image):
@@ -95,7 +89,14 @@ if page == "Upload Image For Prediction":
         if st.button("Predict Tumour Class"):
             if uploaded_image is not None:
                 with st.spinner("Predicting..."):
-                    prediction = predict_class(model, img)
+                    probs = predict_class(model, img)
+                    st.info(f"Confidence: {100 * np.max(probs):.2f}%")
+                    fig, ax = plt.subplots()
+                    ax.bar(class_names, probs)
+                    ax.set_ylabel("Probability")
+                    ax.set_xlabel("Classes")
+                    ax.set_title("Class Prediction Probabilities")
+                    st.pyplot(fig)
             else:
                 st.error("No image uploaded, please try again.")
 
@@ -152,7 +153,7 @@ elif page == "Project Findings":
     "The project also gives an idea of the potential for machine learning use in medical settings.")
     st.image("images/brainmris.jpg", use_container_width=True)
 
-elif page == "About The Dev":
+elif page == "About The Developer":
     st.title("About The Developer")
     st.text("I'm Henry, a 14 yr old student passionate about computer science and programming. My aim is to apply AI/ML and programming in general to solve meaningful problems. " \
     "This project was a great learning process and has taught me lots about machine learning and computing as a whole. " \
