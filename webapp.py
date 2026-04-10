@@ -48,7 +48,7 @@ def get_model_architecture():
     return summary_str 
 
 
-class_names = ["Glioma", "Meningioma", "No Tumor", "Pituitary"]
+class_names = ["Glioma", "Meningioma", "No Tumour", "Pituitary"]
 
 def predict_class(model, img):
     prediction = model.predict(img) #will be an array of probabilities
@@ -156,8 +156,8 @@ elif page == "Project Findings":
     )
     st.image("images/brainmris.jpg", use_container_width=True)
 
-elif page == "About The Developer":
-    st.title("About The Developer")
+elif page == "About the Developer":
+    st.title("About the Developer")
     st.text(
         "I'm Henry, a secondary school student interested in the intersection of biological science and computation, particularly how machine learning can be used to model and interpret biological systems. "
         "This project developed my understanding of both machine learning techniques and their limitations when applied to complex biological data, particularly in the context of neuroscience and medical imaging. "
