@@ -100,7 +100,7 @@ This project is intended for educational purposes only and is not a diagnostic t
 
 ## Author
 
-Developed by Me (wow)  
+Developed by me (wow)  
 Secondary school student interested in the intersection of biology and machine learning.
 
 ---
