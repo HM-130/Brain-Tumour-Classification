@@ -70,13 +70,13 @@ st.sidebar.title("Navigation")
 #menu
 page = st.sidebar.radio(
     "Non Empty Label",
-    ["Upload Image For Prediction", "About The Model", "Project Findings", "About The Dev"],
+    ["Upload Image for Prediction", "About the Model", "Project Findings", "About the Developer"],
     label_visibility="hidden"
 )
 
 model = load_the_model() 
 
-if page == "Upload Image For Prediction":
+if page == "Upload Image for Prediction":
     st.title("Brain Tumour Classification")
     st.header("Upload an MRI")
     uploaded_image = st.file_uploader("Upload an MRI", type=["jpg", "png"], label_visibility="hidden") #hide label and use header for appearance
@@ -105,8 +105,8 @@ if page == "Upload Image For Prediction":
             st.empty() #clears the screen
 
 
-elif page == "About The Model":
-    st.title("About The Model")
+elif page == "About the Model":
+    st.title("About the Model")
 
     st.header("Model Architecture")
     summary_str = get_model_architecture()
@@ -114,26 +114,26 @@ elif page == "About The Model":
 
     st.header("Tech Stack")
     st.subheader("General")
-    st.text("Programming language: Python\nIDE: VSCode\nData Source: Kaggle")
+    st.text("Programming language: Python\nIDE: VSCode\nData source: Kaggle")
     st.subheader("Model Development Frameworks/Libraries")
-    st.text("Tensorflow with Keras - machine learning (data pipeline, building the model, training)\n" \
-            "Matplotlib - Training visualisation and confusion matrix visualisation\n" \
-            "Seaborn - Confusion matrix visualisation\n" \
-            "Scikit-Learn - Confusion matrix\n"
-            "Numpy - Numerical programming\n")
+    st.text("TensorFlow with Keras - machine learning (data pipeline, building the model, training)\n" \
+            "Matplotlib - training visualisation and confusion matrix visualisation\n" \
+            "Seaborn - confusion matrix visualisation\n" \
+            "scikit-learn - confusion matrix\n"
+            "NumPy - numerical programming\n")
     st.subheader("Website Development Frameworks/Libraries")
-    st.text("Streamlit - Web development\n" \
-            "Matplotlib - Visualisation of prediction probabilities\n" \
-            "StringIO - Model architecture\n" \
-            "PIL - Image preprocessing\n" \
-            "Tensorflow with Keras - Model Loading\n" \
-            "Numpy - Numerical programming\n")
+    st.text("Streamlit - web development\n" \
+            "Matplotlib - visualisation of prediction probabilities\n" \
+            "StringIO - model architecture\n" \
+            "PIL - image preprocessing\n" \
+            "TensorFlow with Keras - Model Loading\n" \
+            "NumPy - Numerical programming\n")
 
     st.header("Development")
-    st.text("Five different models were developed for this problem. The model used on this website is the 5th of the five, which is the highest performing.")
-    st.subheader("The 5 models")
+    st.text("Five different models were developed for this problem. The model used for this website is the 5th and highest-performing model of the five available.")
+    st.subheader("The 5 Models")
     st.code("""Model No. | Dropout | Data Augmentation | Learning Rate Scheduler | Test Accuracy | Test Loss
-Model 1 | No | Yes | No | 0.9420 | 0.2443
+Model 1 | No | No | No | 0.9420 | 0.2443
 Model 2 | Yes | No | No | 0.9382 | 0.2124
 Model 3 | No | Yes | No | 0.2288 | 2.9633
 Model 4 | Yes | Yes | No | 0.2288 | 2.2432
@@ -147,17 +147,23 @@ Model 5 | No | No | Yes | 0.9657 | 0.1469""", language='text')
 
 elif page == "Project Findings":
     st.title("Findings")
-    st.text("The development of these 5 models has shown that various machine learning techniques used to prevent overfitting such as dropout and data augmentation (as tested here) " \
-    "can be detrimental to model performance when developing classification models designed to process images where tiny details have a big difference to the class of the image, " \
-    "such as medical imaging classifier models like this one. " \
-    "The project also gives an idea of the potential for machine learning use in medical settings.")
+    st.text(
+        "This project explored the application of machine learning to brain MRI classification, with a focus on how model design choices influence performance in biologically complex datasets. "
+        "The results suggest that techniques commonly used to reduce overfitting, such as dropout and data augmentation, may in some cases reduce performance when fine-grained visual features are critical for class differentiation, "
+        "as is often the case in medical imaging tasks where subtle structural differences reflect underlying biological variation. "
+        "The project also highlighted that MRI-based classification is not purely a pattern recognition problem, but an indirect representation of biological processes such as tissue density, vascular structure, and tumour heterogeneity. "
+        "This emphasises that effective clinical applications of machine learning must balance predictive performance with biological interpretability and awareness of real-world variability in medical data."
+    )
     st.image("images/brainmris.jpg", use_container_width=True)
 
 elif page == "About The Developer":
     st.title("About The Developer")
-    st.text("I'm Henry, a 14 yr old student passionate about computer science and programming. My aim is to apply AI/ML and programming in general to solve meaningful problems. " \
-    "This project was a great learning process and has taught me lots about machine learning and computing as a whole. " \
-    "I learned the skills needed for this project from 2 courses on kaggle: Intro to Deep Learning and Computer Vision. ")
+    st.text(
+        "I'm Henry, a secondary school student interested in the intersection of biological science and computation, particularly how machine learning can be used to model and interpret biological systems. "
+        "This project developed my understanding of both machine learning techniques and their limitations when applied to complex biological data, particularly in the context of neuroscience and medical imaging. "
+        "I initially learned the fundamentals of deep learning and computer vision through Kaggle courses, which I then applied and extended in this independent project. "
+        "More broadly, I am interested in how computational approaches can complement biological understanding, especially in medical contexts where data reflects underlying physiological processes rather than purely abstract patterns."
+    )
     st.image("images/binary.png", use_container_width=True)
 
 else:
