@@ -159,7 +159,7 @@ elif page == "Project Findings":
 elif page == "About the Developer":
     st.title("About the Developer")
     st.text(
-        "I'm Henry, a secondary school student interested in the intersection of biological science and computation, particularly how machine learning can be used to model and interpret biological systems. "
+        "I'm Henry, a secondary school student and aspiring medical applicant interested in the intersection of biological science, medicine, and computation, particularly concerning how machine learning can be used to model and interpret biological systems. "
         "This project developed my understanding of both machine learning techniques and their limitations when applied to complex biological data, particularly in the context of neuroscience and medical imaging. "
         "I initially learned the fundamentals of deep learning and computer vision through Kaggle courses, which I then applied and extended in this independent project. "
         "More broadly, I am interested in how computational approaches can complement biological understanding, especially in medical contexts where data reflects underlying physiological processes rather than purely abstract patterns."
